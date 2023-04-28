@@ -1,0 +1,113 @@
+[
+  {
+    "ru": "ё",
+    "ru_shift": "Ё",
+    "en": "`",
+    "en_shift": "~",
+    "type": "standart",
+    "size": 1,
+    "keyCode": "Backquote"
+  },
+  {
+    "ru": "1",
+    "ru_shift": "",
+    "en": "1",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "2",
+    "ru_shift": "",
+    "en": "2",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "3",
+    "ru_shift": "",
+    "en": "3",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "4",
+    "ru_shift": "",
+    "en": "4",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "5",
+    "ru_shift": "",
+    "en": "5",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "6",
+    "ru_shift": "",
+    "en": "6",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "7",
+    "ru_shift": "",
+    "en": "7",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "8",
+    "ru_shift": "",
+    "en": "8",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "9",
+    "ru_shift": "",
+    "en": "9",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "0",
+    "ru_shift": "",
+    "en": "0",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "-",
+    "ru_shift": "",
+    "en": "-",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "Backspace",
+    "en": "Backspace",
+    "type": "Backspace",
+    "size": 2
+  }
+]
