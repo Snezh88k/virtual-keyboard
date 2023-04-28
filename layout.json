@@ -108,6 +108,120 @@
     "ru": "Backspace",
     "en": "Backspace",
     "type": "Backspace",
-    "size": 2
+    "size": 2,
+    "keyCode": "Backspace"
+  },
+  {
+    "ru": "Tab",
+    "ru_shift": "",
+    "en": "Tab",
+    "en_shift": "",
+    "type": "Tab",
+    "size": 1.5,
+    "keyCode": "Tab"
+  },
+  {
+    "ru": "й",
+    "ru_shift": "Й",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
+  },
+  {
+    "ru": "=",
+    "ru_shift": "",
+    "en": "=",
+    "en_shift": "",
+    "type": "standart",
+    "size": 1
   }
 ]

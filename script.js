@@ -1,39 +1,74 @@
 import layout from "./layout.json" assert { type: "json" };
+
 const body = document.querySelector("body");
 const textarea = document.createElement("textarea");
 const keyboard = document.createElement("div");
 keyboard.classList.add("keyboard");
+textarea.classList.add("textarea");
 body.appendChild(textarea);
 body.appendChild(keyboard);
-textarea.onblur = function () {
+
+textarea.focus();
+window.addEventListener("click", (e) => {
   textarea.focus();
-};
+});
+
+let language = "en";
+
+function interactiveClick(elem) {
+  elem.classList.add("active");
+  setTimeout(() => {
+    elem.classList.remove("active");
+  }, 400);
+}
+
+// Создание кнопки
+
 const makeKey = (value) => {
+  const { ru, en, type, keyCode, size } = value;
+  // console.log(ru, en, type, keyCode);
   const key = document.createElement("div");
   keyboard.appendChild(key);
   key.classList.add("key");
-  if (value.size === 1) {
+  if (size === 1) {
     key.style.width = "50px";
-  } else if (value.size === 2) {
+  } else if (size === 2) {
     key.style.width = "100px";
+  } else if (size === 1.5) {
+    key.style.width = "75px";
   }
-  key.innerHTML = value.ru;
-  key.setAttribute("keyValueRu", value.ru);
-  key.setAttribute("keyValueEn", value.en);
-  key.setAttribute("upperCaseName", value.ru.toUpperCase());
-  key.setAttribute("keyType", value.type);
-  key.setAttribute("keyCode", value.keyCode);
+
+  key.setAttribute("keyValueRu", ru);
+  key.setAttribute("keyValueEn", en);
+  key.setAttribute("keyType", type);
+  key.setAttribute("keyCode", keyCode);
+
+  if (language === "en") {
+    key.setAttribute("upperCaseName", en.toUpperCase());
+    key.innerHTML = en;
+  } else {
+    key.setAttribute("upperCaseName", ru.toUpperCase());
+    key.innerHTML = ru;
+  }
 };
 for (let i = 0; i < layout.length; i++) {
   makeKey(layout[i]);
 }
+
+//Добавление стилей на кнопки при нажатии
+
 const keys = document.querySelectorAll(".key");
 window.addEventListener("keydown", (e) => {
-  console.log(e.key, "e.key");
-  console.log(e.shiftKey, "e.shift");
-  console.log(e.code, "e.code");
+  textarea.focus();
+  if (e.code === "Tab") {
+    e.preventDefault();
+    tabSpace();
+  }
+  // console.log(e.key, "e.key");
+  // console.log(e.shiftKey, "e.shift");
+  // console.log(e.code, "e.code");
   for (let i = 0; i < keys.length; i++) {
-    console.log(keys[i].getAttribute("keyCode"), "keyCode");
+    // console.log(keys[i].getAttribute("keyCode"), "keyCode");
     if (
       e.key === keys[i].getAttribute("keyname") ||
       e.key === keys[i].getAttribute("upperCaseName") ||
@@ -43,6 +78,9 @@ window.addEventListener("keydown", (e) => {
     }
   }
 });
+
+//Удаление стилей на кнопки
+
 window.addEventListener("keyup", (e) => {
   for (let i = 0; i < keys.length; i++) {
     if (
@@ -54,20 +92,25 @@ window.addEventListener("keyup", (e) => {
     }
   }
 });
+
 //Фунционал кнопок ввода символов
+
 const standartKeys = document.querySelectorAll('[keyType="standart"]');
 for (let i = 0; i < standartKeys.length; i++) {
-  standartKeys[i].addEventListener("click", (e) => {
+  standartKeys[i].addEventListener("mousedown", (e) => {
+    textarea.focus();
     textarea.value += standartKeys[i].getAttribute("keyValueRu");
-    standartKeys[i].classList.add("active");
-    setTimeout(() => {
-      standartKeys[i].classList.remove("active");
-    }, 400);
+
+    interactiveClick(standartKeys[i]);
   });
 }
+
 //Функционал кнопки "Backspace"
+
 const backspace = document.querySelector('[keyType="Backspace"]');
-backspace.addEventListener("click", (e) => {
+backspace.addEventListener("mousedown", (e) => {
+  interactiveClick(backspace);
+
   let pointer = textarea.selectionStart;
   if (pointer === 0) {
     return;
@@ -78,3 +121,23 @@ backspace.addEventListener("click", (e) => {
   textarea.selectionStart = pointer - 1;
   textarea.selectionEnd = pointer - 1;
 });
+
+//Функционал кнопки "Tab"
+
+const tab = document.querySelector('[keyType="Tab"]');
+
+tab.addEventListener("mousedown", (e) => {
+  interactiveClick(tab);
+  tabSpace();
+});
+
+function tabSpace() {
+  let pointer = textarea.selectionStart;
+
+  textarea.value =
+    textarea.value.slice(0, pointer) +
+    "    " +
+    textarea.value.slice(pointer, textarea.value.length);
+  textarea.selectionStart = pointer + 4;
+  textarea.selectionEnd = pointer + 4;
+}
