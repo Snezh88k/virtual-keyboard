@@ -12,19 +12,39 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Bruno Ace SC", cursive;
+  background-color: black;
 }
 
+h1 {
+  color: white;
+}
 .keyboard {
-  background-color: black;
   padding: 5px;
-  width: 1200px;
+  width: 885px;
   height: 300px;
   display: flex;
+  flex-wrap: wrap;
   gap: 5px;
+  border-radius: 8px;
+  /* border: 1px solid rgb(255 0 0 / 29%); */
+  margin-top: 30px;
+  animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    box-shadow: 0px 0px 59px red;
+  }
 }
 
 .textarea {
-  tab-size: 4;
+  position: relative;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 5px;
+  width: 885px;
+  z-index: 1;
+  margin-top: 30px;
 }
 
 .key {
