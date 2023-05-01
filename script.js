@@ -6,8 +6,7 @@ const keyboard = document.createElement("div");
 const title = document.createElement("h1");
 keyboard.classList.add("keyboard");
 textarea.classList.add("textarea");
-textarea.setAttribute("rows", "10");
-textarea.setAttribute("cols", "50");
+
 title.innerText = "Virtual Keyboard";
 
 body.appendChild(title);
@@ -20,7 +19,6 @@ window.addEventListener("click", (e) => {
 
 let language = "en";
 let shiftActive = false;
-let lastPressKey = "";
 
 function interactiveClick(elem) {
   elem.classList.add("active");
@@ -29,32 +27,44 @@ function interactiveClick(elem) {
   }, 400);
 }
 
-// Создание кнопки
+//Переписывание значения кнопок
 
 const makeValueKey = () => {
   for (let i = 0; i < keys.length; i++) {
     if (language === "ru") {
       if (shiftActive) {
-        layout[i].ru_shift
-          ? (keys[i].innerHTML = layout[i].ru_shift)
-          : (keys[i].innerHTML = layout[i].ru);
+        if (layout[i].ru_shift) {
+          keys[i].innerHTML = layout[i].ru_shift;
+          keys[i].setAttribute("value", layout[i].ru_shift);
+        } else {
+          keys[i].innerHTML = layout[i].ru;
+          keys[i].setAttribute("value", layout[i].ru);
+        }
       } else {
         keys[i].innerHTML = layout[i].ru;
+        keys[i].setAttribute("value", layout[i].ru);
       }
     } else {
       if (shiftActive) {
-        layout[i].en_shift
-          ? (keys[i].innerHTML = layout[i].en_shift)
-          : (keys[i].innerHTML = layout[i].ru);
+        if (layout[i].en_shift) {
+          keys[i].innerHTML = layout[i].en_shift;
+          keys[i].setAttribute("value", layout[i].en_shift);
+        } else {
+          keys[i].innerHTML = layout[i].ru;
+          keys[i].setAttribute("value", layout[i].ru);
+        }
       } else {
         keys[i].innerHTML = layout[i].en;
+        keys[i].setAttribute("value", layout[i].en);
       }
     }
   }
 };
 
+// Создание кнопки
+
 const makeKey = (value) => {
-  const { ru, en, ru_shift, en_shift, type, eCode } = value;
+  const { ru, en, type, eCode } = value;
 
   const key = document.createElement("div");
   keyboard.appendChild(key);
@@ -66,17 +76,11 @@ const makeKey = (value) => {
   key.setAttribute("eCode", eCode);
 
   if (language === "ru") {
-    if (shiftActive) {
-      ru_shift ? (key.innerText = ru_shift) : (key.innerText = ru);
-    } else {
-      key.innerText = ru;
-    }
+    key.innerText = ru;
+    key.setAttribute("value", ru);
   } else {
-    if (shiftActive) {
-      en_shift ? (key.innerText = en_shift) : (key.innerText = ru);
-    } else {
-      key.innerText = en;
-    }
+    key.innerText = en;
+    key.setAttribute("value", en);
   }
 };
 
@@ -95,20 +99,11 @@ const keys = document.querySelectorAll(".key");
 window.addEventListener("keydown", (e) => {
   textarea.focus();
 
-  if (e.code === "Tab") {
-    e.preventDefault();
-    tabSpace();
-  }
-
-  console.log(e.code, "e.code");
-  console.log(e.shiftKey);
-
   for (let i = 0; i < keys.length; i++) {
     if (e.code === keys[i].getAttribute("ecode")) {
       keys[i].classList.add("active");
     }
   }
-  lastPressKey = "";
 });
 
 //Удаление стилей на кнопки
@@ -119,12 +114,12 @@ window.addEventListener("keyup", (e) => {
       keys[i].classList.remove("active");
     }
   }
-  lastPressKey = "";
 });
 
 //Фунционал кнопок ввода символов
 
 const standartKeys = document.querySelectorAll('[keyType="standart"]');
+
 for (let i = 0; i < standartKeys.length; i++) {
   standartKeys[i].addEventListener("mousedown", (e) => {
     textarea.focus();
@@ -133,7 +128,7 @@ for (let i = 0; i < standartKeys.length; i++) {
 
     textarea.value =
       textarea.value.slice(0, pointer) +
-      standartKeys[i].getAttribute("keyValueRu") +
+      standartKeys[i].getAttribute("value") +
       textarea.value.slice(pointer, textarea.value.length);
 
     textarea.selectionStart = pointer + 1;
@@ -141,7 +136,45 @@ for (let i = 0; i < standartKeys.length; i++) {
 
     interactiveClick(standartKeys[i]);
   });
-  lastPressKey = "";
+}
+
+window.addEventListener("keydown", (e) => {
+  let pointer = textarea.selectionStart;
+
+  for (let i = 0; i < keys.length; i++) {
+    if (
+      e.code === keys[i].getAttribute("eCode") &&
+      keys[i].getAttribute("keyType") === "standart"
+    ) {
+      e.preventDefault();
+      textarea.value =
+        textarea.value.slice(0, pointer) +
+        keys[i].getAttribute("value") +
+        textarea.value.slice(pointer, textarea.value.length);
+    }
+  }
+
+  textarea.selectionStart = pointer + 1;
+  textarea.selectionEnd = pointer + 1;
+});
+
+for (let i = 0; i < standartKeys.length; i++) {
+  standartKeys[i].addEventListener("keydown", (e) => {
+    e.preventDefault();
+    textarea.focus();
+
+    let pointer = textarea.selectionStart;
+
+    textarea.value =
+      textarea.value.slice(0, pointer) +
+      standartKeys[i].getAttribute("value") +
+      textarea.value.slice(pointer, textarea.value.length);
+
+    textarea.selectionStart = pointer + 1;
+    textarea.selectionEnd = pointer + 1;
+
+    interactiveClick(standartKeys[i]);
+  });
 }
 
 //Функционал кнопки "Backspace"
@@ -159,10 +192,18 @@ backspace.addEventListener("mousedown", () => {
     textarea.value.slice(pointer, textarea.value.length);
   textarea.selectionStart = pointer - 1;
   textarea.selectionEnd = pointer - 1;
-  lastPressKey = "";
 });
 
 //Функционал кнопки "Tab"
+
+window.addEventListener("keydown", (e) => {
+  textarea.focus();
+
+  if (e.code === "Tab") {
+    e.preventDefault();
+    tabSpace();
+  }
+});
 
 const tab = document.querySelector('[keyType="Tab"]');
 
@@ -180,7 +221,6 @@ function tabSpace() {
     textarea.value.slice(pointer, textarea.value.length);
   textarea.selectionStart = pointer + 4;
   textarea.selectionEnd = pointer + 4;
-  lastPressKey = "";
 }
 
 //Функционал кнопки "Enter"
@@ -200,36 +240,49 @@ function enterClick() {
     textarea.value.slice(pointer, textarea.value.length);
   textarea.selectionStart = pointer + 1;
   textarea.selectionEnd = pointer + 1;
-  lastPressKey = "";
 }
 
-//Фунцционал кнопки "Shift"
+//Фунционал кнопки "Shift"
 
-var handler = function (e) {
+const handler = function (e) {
   if (e.code === "ShiftLeft" || e.code === "ShiftRight") {
-    console.log("aaa", e);
     shiftActive = true;
     makeValueKey();
 
     this.removeEventListener("keydown", handler);
     this.addEventListener("keyup", (e) => {
       if (e.code === "ShiftLeft" || e.code === "ShiftRight") {
-        console.log("dasdsa");
         shiftActive = false;
         makeValueKey();
         window.addEventListener("keydown", handler);
       }
     });
   }
-  lastPressKey = "";
 };
 window.addEventListener("keydown", handler);
 
-const SHIFT = document.querySelector('[keyType="ShiftRight"]');
-console.log(SHIFT);
-// SHIFT.addEventListener("keydown", (e) => {
-//   console.log(e);
-// });
+const SHIFT_RIGHT = document.querySelector('[ecode="ShiftRight"]');
+const SHIFT_LEFT = document.querySelector('[ecode="ShiftLeft"]');
+
+SHIFT_RIGHT.addEventListener("mousedown", (e) => {
+  shiftActive = true;
+  makeValueKey();
+});
+
+SHIFT_LEFT.addEventListener("mousedown", (e) => {
+  shiftActive = true;
+  makeValueKey();
+});
+
+SHIFT_RIGHT.addEventListener("mouseup", (e) => {
+  shiftActive = false;
+  makeValueKey();
+});
+
+SHIFT_LEFT.addEventListener("mouseup", (e) => {
+  shiftActive = false;
+  makeValueKey();
+});
 
 //Фунцционал кнопки "Alt" и "Ctrl" - переключение языков
 

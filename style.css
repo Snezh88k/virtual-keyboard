@@ -10,9 +10,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   font-family: "Bruno Ace SC", cursive;
   background-color: black;
+  padding-top: 30px;
 }
 
 h1 {
@@ -26,7 +27,6 @@ h1 {
   flex-wrap: wrap;
   gap: 5px;
   border-radius: 8px;
-  /* border: 1px solid rgb(255 0 0 / 29%); */
   margin-top: 30px;
   animation: pulse 5s infinite;
 }
@@ -43,6 +43,7 @@ h1 {
   font-weight: 700;
   padding: 5px;
   width: 885px;
+  height: 300px;
   z-index: 1;
   margin-top: 30px;
 }
