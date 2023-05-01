@@ -136,12 +136,13 @@ h1 {
 
 .caps-active {
   transform: translate3d(2px, 2px, 0);
-  color: rgb(9, 243, 79);
+  background-color: rgb(204, 23, 23);
+  color: white;
 }
 
 .caps-active:hover {
   transform: translate3d(2px, 2px, 0);
-  color: rgb(9, 243, 79);
+  color: white;
 }
 
 .description {
