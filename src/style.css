@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  font-family: "Bruno Ace SC", cursive;
+  background-color: black;
+  padding-top: 30px;
+}
+
+h1 {
+  color: white;
+}
+.keyboard {
+  padding: 5px;
+  width: 855px;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  border-radius: 8px;
+  margin-top: 30px;
+  animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    box-shadow: 0px 0px 59px red;
+  }
+}
+
+.textarea {
+  position: relative;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 5px;
+  width: 855px;
+  height: 250px;
+  z-index: 1;
+  margin-top: 30px;
+}
+
+.key {
+  background-color: rgb(39, 39, 39);
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid rgb(147 45 45 / 40%);
+  box-shadow: 3px 3px 4px rgb(143 4 4);
+  transition: 0.5s;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.key:hover {
+  color: red;
+}
+
+.key:active {
+  color: red;
+  transform: translate3d(2px, 2px, 0);
+}
+
+.key.active {
+  transform: translate3d(2px, 2px, 0);
+  color: red;
+}
+
+.key.remove {
+  animation: keys_animation 1s linear;
+}
+
+@keyframes keys_animation {
+  0% {
+    transform: translate3d(2px, 2px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.standart {
+  width: 50px;
+}
+
+.Backspace {
+  width: 130px;
+}
+
+.Del {
+  width: 50px;
+}
+
+.Tab {
+  width: 75px;
+}
+
+.Enter {
+  width: 130px;
+}
+
+.CapsLock {
+  width: 105px;
+}
+
+.shift {
+  width: 117px;
+}
+
+.Space {
+  width: 381px;
+}
+
+.ctrl {
+  width: 62px;
+}
+
+.win {
+  width: 50px;
+}
+
+.alt {
+  width: 50px;
+}
+
+.caps-active {
+  transform: translate3d(2px, 2px, 0);
+  background-color: rgb(204, 23, 23);
+  color: white;
+}
+
+.caps-active:hover {
+  transform: translate3d(2px, 2px, 0);
+  color: white;
+}
+
+.description {
+  color: white;
+  margin-top: 35px;
+}
