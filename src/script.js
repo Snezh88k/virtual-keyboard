@@ -358,7 +358,7 @@ SHIFT_LEFT.addEventListener("mouseup", (e) => {
 let altPress = false;
 let ctrlPress = false;
 
-window.addEventListener("keydown", (e) => {
+const altClick = function (e) {
   if (e.altKey) {
     e.preventDefault();
     if (e.code === "AltLeft") {
@@ -372,11 +372,19 @@ window.addEventListener("keydown", (e) => {
         language = localStorage.getItem("language");
         makeValueKey();
       }
+      this.removeEventListener("keydown", altClick);
+      this.addEventListener("keyup", (e) => {
+        if (e.code === "AltLeft") {
+          window.addEventListener("keydown", altClick);
+        }
+      });
     }
   }
-});
+};
 
-window.addEventListener("keydown", (e) => {
+window.addEventListener("keydown", altClick);
+
+const ctrlClick = function (e) {
   if (e.code === "ControlLeft") {
     ctrlPress = true;
     if (altPress) {
@@ -388,8 +396,16 @@ window.addEventListener("keydown", (e) => {
       language = localStorage.getItem("language");
       makeValueKey();
     }
+    this.removeEventListener("keydown", ctrlClick);
+    this.addEventListener("keyup", (e) => {
+      if (e.code === "ControlLeft") {
+        window.addEventListener("keydown", ctrlClick);
+      }
+    });
   }
-});
+};
+
+window.addEventListener("keydown", ctrlClick);
 
 window.addEventListener("keyup", (e) => {
   if (e.code === "AltLeft") {
