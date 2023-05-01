@@ -5,7 +5,9 @@
     "en": "`",
     "en_shift": "~",
     "type": "standart",
-    "eCode": "Backquote"
+    "eCode": "Backquote",
+    "capsRu": true,
+    "capsEn": false
   },
   {
     "ru": "1",
@@ -123,7 +125,9 @@
     "en": "q",
     "en_shift": "Q",
     "type": "standart",
-    "eCode": "KeyQ"
+    "eCode": "KeyQ",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "ц",
@@ -131,7 +135,9 @@
     "en": "w",
     "en_shift": "W",
     "type": "standart",
-    "eCode": "KeyW"
+    "eCode": "KeyW",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "у",
@@ -139,7 +145,9 @@
     "en": "e",
     "en_shift": "E",
     "type": "standart",
-    "eCode": "KeyE"
+    "eCode": "KeyE",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "к",
@@ -147,7 +155,9 @@
     "en": "r",
     "en_shift": "R",
     "type": "standart",
-    "eCode": "KeyR"
+    "eCode": "KeyR",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "е",
@@ -155,7 +165,9 @@
     "en": "t",
     "en_shift": "T",
     "type": "standart",
-    "eCode": "KeyT"
+    "eCode": "KeyT",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "н",
@@ -163,7 +175,9 @@
     "en": "y",
     "en_shift": "Y",
     "type": "standart",
-    "eCode": "KeyY"
+    "eCode": "KeyY",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "г",
@@ -171,7 +185,9 @@
     "en": "u",
     "en_shift": "U",
     "type": "standart",
-    "eCode": "KeyU"
+    "eCode": "KeyU",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "ш",
@@ -179,7 +195,9 @@
     "en": "i",
     "en_shift": "I",
     "type": "standart",
-    "eCode": "KeyI"
+    "eCode": "KeyI",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "щ",
@@ -187,7 +205,9 @@
     "en": "o",
     "en_shift": "O",
     "type": "standart",
-    "eCode": "KeyO"
+    "eCode": "KeyO",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "з",
@@ -195,7 +215,9 @@
     "en": "p",
     "en_shift": "P",
     "type": "standart",
-    "eCode": "KeyP"
+    "eCode": "KeyP",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "х",
@@ -203,7 +225,9 @@
     "en": "[",
     "en_shift": "{",
     "type": "standart",
-    "eCode": "BracketLeft"
+    "eCode": "BracketLeft",
+    "capsRu": true,
+    "capsEn": false
   },
   {
     "ru": "ъ",
@@ -211,7 +235,9 @@
     "en": "]",
     "en_shift": "}",
     "type": "standart",
-    "eCode": "BracketRight"
+    "eCode": "BracketRight",
+    "capsRu": true,
+    "capsEn": false
   },
   {
     "ru": "\\",
@@ -241,7 +267,9 @@
     "en": "a",
     "en_shift": "A",
     "type": "standart",
-    "eCode": "KeyA"
+    "eCode": "KeyA",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "ы",
@@ -249,7 +277,9 @@
     "en": "s",
     "en_shift": "S",
     "type": "standart",
-    "eCode": "KeyS"
+    "eCode": "KeyS",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "в",
@@ -257,7 +287,9 @@
     "en": "d",
     "en_shift": "D",
     "type": "standart",
-    "eCode": "KeyD"
+    "eCode": "KeyD",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "а",
@@ -265,7 +297,9 @@
     "en": "f",
     "en_shift": "F",
     "type": "standart",
-    "eCode": "KeyF"
+    "eCode": "KeyF",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "п",
@@ -273,7 +307,9 @@
     "en": "g",
     "en_shift": "G",
     "type": "standart",
-    "eCode": "KeyG"
+    "eCode": "KeyG",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "р",
@@ -281,7 +317,9 @@
     "en": "h",
     "en_shift": "H",
     "type": "standart",
-    "eCode": "KeyH"
+    "eCode": "KeyH",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "о",
@@ -289,7 +327,9 @@
     "en": "j",
     "en_shift": "J",
     "type": "standart",
-    "eCode": "KeyJ"
+    "eCode": "KeyJ",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "л",
@@ -297,7 +337,9 @@
     "en": "k",
     "en_shift": "K",
     "type": "standart",
-    "eCode": "KeyK"
+    "eCode": "KeyK",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "д",
@@ -305,7 +347,9 @@
     "en": "l",
     "en_shift": "L",
     "type": "standart",
-    "eCode": "KeyL"
+    "eCode": "KeyL",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "ж",
@@ -313,7 +357,9 @@
     "en": ";",
     "en_shift": ":",
     "type": "standart",
-    "eCode": "Semicolon"
+    "eCode": "Semicolon",
+    "capsRu": true,
+    "capsEn": false
   },
   {
     "ru": "э",
@@ -321,7 +367,9 @@
     "en": "'",
     "en_shift": "\"",
     "type": "standart",
-    "eCode": "Quote"
+    "eCode": "Quote",
+    "capsRu": true,
+    "capsEn": false
   },
   {
     "ru": "Enter",
@@ -341,7 +389,9 @@
     "en": "z",
     "en_shift": "Z",
     "type": "standart",
-    "eCode": "KeyZ"
+    "eCode": "KeyZ",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "ч",
@@ -349,7 +399,9 @@
     "en": "x",
     "en_shift": "X",
     "type": "standart",
-    "eCode": "KeyX"
+    "eCode": "KeyX",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "с",
@@ -357,7 +409,9 @@
     "en": "c",
     "en_shift": "C",
     "type": "standart",
-    "eCode": "KeyC"
+    "eCode": "KeyC",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "м",
@@ -365,7 +419,9 @@
     "en": "v",
     "en_shift": "V",
     "type": "standart",
-    "eCode": "KeyV"
+    "eCode": "KeyV",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "и",
@@ -373,7 +429,9 @@
     "en": "b",
     "en_shift": "B",
     "type": "standart",
-    "eCode": "KeyB"
+    "eCode": "KeyB",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "т",
@@ -381,7 +439,9 @@
     "en": "n",
     "en_shift": "N",
     "type": "standart",
-    "eCode": "KeyN"
+    "eCode": "KeyN",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "ь",
@@ -389,7 +449,9 @@
     "en": "m",
     "en_shift": "M",
     "type": "standart",
-    "eCode": "KeyM"
+    "eCode": "KeyM",
+    "capsRu": true,
+    "capsEn": true
   },
   {
     "ru": "б",
@@ -397,7 +459,9 @@
     "en": ",",
     "en_shift": "<",
     "type": "standart",
-    "eCode": "Comma"
+    "eCode": "Comma",
+    "capsRu": true,
+    "capsEn": false
   },
   {
     "ru": "ю",
@@ -405,7 +469,9 @@
     "en": ".",
     "en_shift": ">",
     "type": "standart",
-    "eCode": "Period"
+    "eCode": "Period",
+    "capsRu": true,
+    "capsEn": false
   },
   {
     "ru": ".",

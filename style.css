@@ -133,3 +133,13 @@ h1 {
 .alt {
   width: 50px;
 }
+
+.caps-active {
+  transform: translate3d(2px, 2px, 0);
+  color: rgb(9, 243, 79);
+}
+
+.caps-active:hover {
+  transform: translate3d(2px, 2px, 0);
+  color: rgb(9, 243, 79);
+}
