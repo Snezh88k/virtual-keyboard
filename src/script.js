@@ -4,14 +4,20 @@ const body = document.querySelector("body");
 const textarea = document.createElement("textarea");
 const keyboard = document.createElement("div");
 const title = document.createElement("h1");
+const description = document.createElement("div");
 keyboard.classList.add("keyboard");
 textarea.classList.add("textarea");
+description.classList.add("description");
 
 title.innerText = "Virtual Keyboard";
 
 body.appendChild(title);
 body.appendChild(textarea);
 body.appendChild(keyboard);
+body.appendChild(description);
+
+description.innerHTML =
+  "<div><span>The keyboard was created in the Windows.</span><br><span>To switch the language: left CTRL + left ALT</span></div>";
 
 window.addEventListener("click", (e) => {
   textarea.focus();

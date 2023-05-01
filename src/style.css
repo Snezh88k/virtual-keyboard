@@ -42,8 +42,8 @@ h1 {
   font-size: 16px;
   font-weight: 700;
   padding: 5px;
-  width: 885px;
-  height: 300px;
+  width: 855px;
+  height: 250px;
   z-index: 1;
   margin-top: 30px;
 }
@@ -142,4 +142,9 @@ h1 {
 .caps-active:hover {
   transform: translate3d(2px, 2px, 0);
   color: rgb(9, 243, 79);
+}
+
+.description {
+  color: white;
+  margin-top: 35px;
 }
