@@ -20,7 +20,7 @@ h1 {
 }
 .keyboard {
   padding: 5px;
-  width: 885px;
+  width: 855px;
   height: 300px;
   display: flex;
   flex-wrap: wrap;
@@ -87,4 +87,48 @@ h1 {
   100% {
     transform: translate3d(0, 0, 0);
   }
+}
+
+.standart {
+  width: 50px;
+}
+
+.Backspace {
+  width: 130px;
+}
+
+.Del {
+  width: 50px;
+}
+
+.Tab {
+  width: 75px;
+}
+
+.Enter {
+  width: 130px;
+}
+
+.CapsLock {
+  width: 105px;
+}
+
+.shift {
+  width: 117px;
+}
+
+.Space {
+  width: 381px;
+}
+
+.ctrl {
+  width: 62px;
+}
+
+.win {
+  width: 50px;
+}
+
+.alt {
+  width: 50px;
 }

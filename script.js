@@ -14,12 +14,13 @@ body.appendChild(title);
 body.appendChild(textarea);
 body.appendChild(keyboard);
 
-textarea.focus();
 window.addEventListener("click", (e) => {
   textarea.focus();
 });
 
 let language = "en";
+let shiftActive = false;
+let lastPressKey = "";
 
 function interactiveClick(elem) {
   elem.classList.add("active");
@@ -27,8 +28,6 @@ function interactiveClick(elem) {
     elem.classList.remove("active");
   }, 400);
 }
-
-let shiftActive = false;
 
 // Создание кнопки
 
@@ -55,23 +54,15 @@ const makeValueKey = () => {
 };
 
 const makeKey = (value) => {
-  const { ru, en, ru_shift, en_shift, type, keyCode, size, eCode } = value;
+  const { ru, en, ru_shift, en_shift, type, eCode } = value;
 
   const key = document.createElement("div");
   keyboard.appendChild(key);
   key.classList.add("key");
-  if (size === 1) {
-    key.style.width = "50px";
-  } else if (size === 2) {
-    key.style.width = "100px";
-  } else if (size === 1.5) {
-    key.style.width = "75px";
-  }
-
+  key.classList.add(type);
   key.setAttribute("keyValueRu", ru);
   key.setAttribute("keyValueEn", en);
   key.setAttribute("keyType", type);
-  key.setAttribute("keyCode", keyCode);
   key.setAttribute("eCode", eCode);
 
   if (language === "ru") {
@@ -117,19 +108,18 @@ window.addEventListener("keydown", (e) => {
       keys[i].classList.add("active");
     }
   }
+  lastPressKey = "";
 });
 
 //Удаление стилей на кнопки
 
 window.addEventListener("keyup", (e) => {
   for (let i = 0; i < keys.length; i++) {
-    if (
-      e.code === keys[i].getAttribute("keyCode") ||
-      e.code === keys[i].getAttribute("eCode")
-    ) {
+    if (e.code === keys[i].getAttribute("eCode")) {
       keys[i].classList.remove("active");
     }
   }
+  lastPressKey = "";
 });
 
 //Фунционал кнопок ввода символов
@@ -151,6 +141,7 @@ for (let i = 0; i < standartKeys.length; i++) {
 
     interactiveClick(standartKeys[i]);
   });
+  lastPressKey = "";
 }
 
 //Функционал кнопки "Backspace"
@@ -168,6 +159,7 @@ backspace.addEventListener("mousedown", () => {
     textarea.value.slice(pointer, textarea.value.length);
   textarea.selectionStart = pointer - 1;
   textarea.selectionEnd = pointer - 1;
+  lastPressKey = "";
 });
 
 //Функционал кнопки "Tab"
@@ -188,6 +180,7 @@ function tabSpace() {
     textarea.value.slice(pointer, textarea.value.length);
   textarea.selectionStart = pointer + 4;
   textarea.selectionEnd = pointer + 4;
+  lastPressKey = "";
 }
 
 //Функционал кнопки "Enter"
@@ -207,13 +200,8 @@ function enterClick() {
     textarea.value.slice(pointer, textarea.value.length);
   textarea.selectionStart = pointer + 1;
   textarea.selectionEnd = pointer + 1;
+  lastPressKey = "";
 }
-
-const SHIFT = document.querySelector('[keyType="ShiftRight"]');
-console.log(SHIFT);
-SHIFT.addEventListener("keydown", (e) => {
-  console.log(e);
-});
 
 //Фунцционал кнопки "Shift"
 
@@ -233,7 +221,51 @@ var handler = function (e) {
       }
     });
   }
+  lastPressKey = "";
 };
 window.addEventListener("keydown", handler);
 
-//Фунцционал кнопки "Alt" и "Ctrl"
+const SHIFT = document.querySelector('[keyType="ShiftRight"]');
+console.log(SHIFT);
+// SHIFT.addEventListener("keydown", (e) => {
+//   console.log(e);
+// });
+
+//Фунцционал кнопки "Alt" и "Ctrl" - переключение языков
+
+let altPress = false;
+let ctrlPress = false;
+
+window.addEventListener("keydown", (e) => {
+  if (e.altKey) {
+    e.preventDefault();
+    if (e.code === "AltLeft") {
+      altPress = true;
+      if (ctrlPress) {
+        language = language === "en" ? "ru" : "en";
+        makeValueKey();
+      }
+    }
+  }
+});
+
+window.addEventListener("keydown", (e) => {
+  if (e.code === "ControlLeft") {
+    console.log("тык");
+    ctrlPress = true;
+    if (altPress) {
+      console.log("Переключаем язык");
+      language = language === "en" ? "ru" : "en";
+      makeValueKey();
+    }
+  }
+});
+
+window.addEventListener("keyup", (e) => {
+  if (e.code === "AltLeft") {
+    altPress = false;
+  }
+  if (e.code === "ControlLeft") {
+    ctrlPress = false;
+  }
+});
